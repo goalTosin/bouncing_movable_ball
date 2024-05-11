@@ -4,7 +4,8 @@ Simple ball bouncing game
 # Play Controls
 - Arrow up to jump
 - Arrow left and right to move
-- Use mouse controls to throw ball around
+- Use mouse to throw ball around without touching the ball
+- Click the screen once to stop the ball from flying
 - No mobile phone support
 
 # Future features

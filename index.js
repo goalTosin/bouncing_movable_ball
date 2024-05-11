@@ -67,7 +67,7 @@ function draw() {
   if (ball.y + ball.radius >= canvas.height || ball.y - ball.radius <= 0) {
     // ball.y -= ball.radius
     if (keysDown.ArrowUp) {
-      ball.vy = -100;
+      ball.vy = -20;
     } else {
       const d =
         ball.y + ball.radius >= canvas.height
