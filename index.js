@@ -18,8 +18,8 @@ let throwController = {
 
 const ball = {
   x: 100,
-  y: canvas.height - 25,
-  vx: 5,
+  y: 25,
+  vx: 15,
   vy: 1,
   gx: 0,
   gy: 0.5,
