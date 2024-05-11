@@ -9,11 +9,11 @@ Simple ball bouncing game
 
 # Future features
 - Add balls
-- Easier ball control
 
 # Features
 - Trailing ball
 - Gravity
+- Easy ball control
 
 # Play locally
 Download this repo and simply open index.html in your browser and play instantly
