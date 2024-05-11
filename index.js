@@ -2,8 +2,11 @@
  * @type {HTMLCanvasElement}
  */
 const canvas = document.getElementById("canvas");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+addEventListener("DOMContentLoaded", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
 canvas.style.display = "block";
 const ctx = canvas.getContext("2d");
 let animationFrameHolder;
@@ -40,13 +43,13 @@ function clear() {
   ctx.fillStyle = "rgba(255, 255, 255, 0.3)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
-const keysDown = {}
+const keysDown = {};
 function keyed(e) {
-  keysDown[e.key] = e.type === 'keydown'
+  keysDown[e.key] = e.type === "keydown";
   console.log(keysDown);
 }
-addEventListener('keydown', keyed)
-addEventListener('keyup', keyed)
+addEventListener("keydown", keyed);
+addEventListener("keyup", keyed);
 
 function draw() {
   clear();
@@ -58,25 +61,25 @@ function draw() {
   // ball.vy *= 0.99;
   // handle
   if (keysDown.ArrowLeft) {
-    ball.vx -= 0.1
+    ball.vx -= 0.1;
   }
   if (keysDown.ArrowRight) {
-    ball.vx += 0.1
+    ball.vx += 0.1;
   }
 
   if (ball.y + ball.radius >= canvas.height || ball.y - ball.radius <= 0) {
     // ball.y -= ball.radius
     if (keysDown.ArrowUp) {
-      ball.vy = -100
+      ball.vy = -100;
     } else {
-    const d =
-      ball.y + ball.radius >= canvas.height
-        ? -canvas.height + ball.y + ball.radius
-        : ball.y - ball.radius;
-    ball.y -= d;
-    // console.log( ball.y + ball.radius >= canvas.height ? canvas.height - ball.y - ball.radius : ball.y - ball.radius);
-    // ball.vx *= 0.99;
-    ball.vy *= -ball.bounciness;
+      const d =
+        ball.y + ball.radius >= canvas.height
+          ? -canvas.height + ball.y + ball.radius
+          : ball.y - ball.radius;
+      ball.y -= d;
+      // console.log( ball.y + ball.radius >= canvas.height ? canvas.height - ball.y - ball.radius : ball.y - ball.radius);
+      // ball.vx *= 0.99;
+      ball.vy *= -ball.bounciness;
     }
   } else {
     ball.vy += ball.gy;
