@@ -139,7 +139,7 @@ canvas.addEventListener("mouseup", (e) => {
 animationFrameHolder = window.requestAnimationFrame(draw);
 // running = true;
 //   }
-// });
+// }); 
 
 // canvas.addEventListener("mouseout", (e) => {
 //   window.cancelAnimationFrame(raf);
