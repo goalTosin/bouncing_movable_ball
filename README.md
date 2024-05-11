@@ -8,7 +8,18 @@ Simple ball bouncing game
 - No mobile phone support
 
 # Future features
-- Create balls
+- Add balls
+- Easier ball control
 
 # Features
 - Trailing ball
+- Gravity
+
+# Play locally
+Download this repo and simply open index.html in your browser and play instantly
+
+# Collaborators
+Fork this repo and suggest changes to me!
+
+# Social
+Don't forget to leave a star!! 😁😁
