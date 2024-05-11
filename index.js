@@ -2,7 +2,7 @@ addEventListener("DOMContentLoaded", () => {
   /**
    * @type {HTMLCanvasElement}
    */
-  const canvas = document.getElementById("canvas");
+  const canvas = document.querySelector("canvas");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
