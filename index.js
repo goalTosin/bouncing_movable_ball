@@ -1,11 +1,10 @@
+addEventListener("DOMContentLoaded", () => {
 /**
  * @type {HTMLCanvasElement}
  */
 const canvas = document.getElementById("canvas");
-addEventListener("DOMContentLoaded", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-});
 
 canvas.style.display = "block";
 const ctx = canvas.getContext("2d");
@@ -155,3 +154,4 @@ raf = window.requestAnimationFrame(draw);
 // });
 
 ball.draw();
+});
