@@ -103,14 +103,11 @@ const cOnBall = (x, y) =>
   y < ball.y + ball.radius;
 
 canvas.addEventListener("mousedown", (e) => {
-  if (cOnBall(e.clientX, e.clientY)) {
-    ball.carrying = !ball.carrying;
-    throwController.x0 = e.clientX;
-    throwController.y0 = e.clientY;
-    throwController.start = 0;
-    cancelAnimationFrame(animationFrameHolder);
-    // raf = window.requestAnimationFrame(draw);
-  }
+  ball.carrying = !ball.carrying;
+  throwController.x0 = e.clientX;
+  throwController.y0 = e.clientY;
+  throwController.start = 0;
+  cancelAnimationFrame(animationFrameHolder);
 });
 
 canvas.addEventListener("mousemove", (e) => {
@@ -124,19 +121,17 @@ canvas.addEventListener("mousemove", (e) => {
 });
 
 canvas.addEventListener("mouseup", (e) => {
-  if (cOnBall(e.clientX, e.clientY)) {
-    ball.carrying = false;
-    throwController.x1 = e.clientX;
-    throwController.y1 = e.clientY;
-    throwController.end = new Date().getTime();
-    throwController.throwDuration = throwController.end - throwController.start;
-    let s = 2;
-    ball.vx = throwController.x1 - throwController.x0;
-    ball.vy = throwController.y1 - throwController.y0;
-    console.log(throwController);
-    animationFrameHolder = window.requestAnimationFrame(draw);
-    running = true;
-  }
+  ball.carrying = false;
+  throwController.x1 = e.clientX;
+  throwController.y1 = e.clientY;
+  throwController.end = new Date().getTime();
+  throwController.throwDuration = throwController.end - throwController.start;
+  let s = 0.3;
+  ball.vx = s * (throwController.x1 - throwController.x0);
+  ball.vy = s * (throwController.y1 - throwController.y0);
+  console.log(throwController);
+  animationFrameHolder = window.requestAnimationFrame(draw);
+  running = true;
 });
 
 // canvas.addEventListener("click", (e) => {
