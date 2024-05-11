@@ -7,3 +7,6 @@ Simple ball bouncing game
 
 # Future features
 - Create balls
+
+# Features
+- Trailing ball
