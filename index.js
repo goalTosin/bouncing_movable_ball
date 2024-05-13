@@ -3,6 +3,7 @@
  */
 const canvas = document.querySelector("canvas");
 const radiusControl = document.getElementById('radius')
+const massControl = document.getElementById('mass')
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -24,10 +25,11 @@ const ball = {
   vy: 1,
   gx: 0,
   gy: 0.5,
+  mass: 1,
   radius: 25,
   color: "blue",
   carrying: false,
-  bounciness: 0.8,
+  bounciness: 0.5,
   draw() {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
@@ -50,6 +52,10 @@ addEventListener("keydown", keyed);
 addEventListener("keyup", keyed);
 radiusControl.addEventListener('input', (e) => {
   ball.radius = radiusControl.valueAsNumber
+})
+
+massControl.addEventListener('input', (e) => {
+  ball.mass = massControl.valueAsNumber
 })
 
 function draw() {
@@ -79,8 +85,9 @@ function draw() {
           : ball.y - ball.radius;
       ball.y -= d;
       // console.log( ball.y + ball.radius >= canvas.height ? canvas.height - ball.y - ball.radius : ball.y - ball.radius);
-      // ball.vx *= 0.99;
-      ball.vy *= -ball.bounciness;
+      ball.vx *= 0.999;
+      ball.vy -= ball.gy
+      ball.vy *= -ball.bounciness / ball.mass;
     }
   } else {
     ball.vy += ball.gy;
@@ -92,7 +99,7 @@ function draw() {
         : ball.x - ball.radius;
     ball.x -= d;
 
-    ball.vx *= -ball.bounciness;
+    ball.vx *= -ball.bounciness / ball.mass;
     // ball.vy *= 0.99;
   }
   // ball.vx += ball.gx;

@@ -12,17 +12,48 @@
         top: 0;
         z-index: -1;
       }
+      #ui {
+        position: absolute;
+        right: 1em;
+        top: 0;
+        max-width: 30em;
+        min-width: 17em;
+        border: 1px solid black;
+        box-shadow: 1px 1px 2px 1px #00000080;
+        border-radius: 0 0 0.5em 0.5em;
+      }
+      #ui > div {
+        margin: 0.5em 1em;
+      }
     </style>
   </head>
   <body>
     <div id="ui">
-      <label for="radius">Ball radius</label>
-      <input
-        type="range"
-        name="radius"
-        id="radius"
-        oninput="this.nextElementSibling.innerHTML = this.value" />
-      <output>25</output>
+      <div>
+        <label for="radius">Ball radius:</label>
+        <input
+          type="range"
+          name="radius"
+          id="radius"
+          min="2"
+          value="25"
+          max="200"
+          oninput="this.nextElementSibling.innerHTML = this.value" />
+        <output>25</output>
+      </div>
+      <hr>
+      <div>
+        <label for="mass">Ball mass:</label>
+        <input
+          type="range"
+          name="mass"
+          id="mass"
+          min="1"
+          value="1"
+          max="20"
+          oninput="this.nextElementSibling.innerHTML = this.value" />
+        <output>1</output>
+      </div>
     </div>
     <canvas></canvas>
     <script src="index.js"></script>
