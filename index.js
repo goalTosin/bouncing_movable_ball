@@ -2,6 +2,7 @@
  * @type {HTMLCanvasElement}
  */
 const canvas = document.querySelector("canvas");
+const radiusControl = document.getElementById('radius')
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -47,6 +48,9 @@ function keyed(e) {
 }
 addEventListener("keydown", keyed);
 addEventListener("keyup", keyed);
+radiusControl.addEventListener('input', (e) => {
+  ball.radius = radiusControl.valueAsNumber
+})
 
 function draw() {
   clear();

@@ -10,10 +10,20 @@
         position: absolute;
         left: 0;
         top: 0;
+        z-index: -1;
       }
     </style>
   </head>
   <body>
+    <div id="ui">
+      <label for="radius">Ball radius</label>
+      <input
+        type="range"
+        name="radius"
+        id="radius"
+        oninput="this.nextElementSibling.innerHTML = this.value" />
+      <output>25</output>
+    </div>
     <canvas></canvas>
     <script src="index.js"></script>
   </body>
